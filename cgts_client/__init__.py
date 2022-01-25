@@ -124,7 +124,7 @@ class Engine:
         remaining = deque(sequence)
 
         for played_move in self._played_sequence:
-            if played_move.lower() != remaining[0].lower():
+            if not remaining or played_move.lower() != remaining[0].lower():
                 break
             remaining.popleft()
 
