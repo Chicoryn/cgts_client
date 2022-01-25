@@ -220,7 +220,8 @@ class Server:
     def heartbeat(self) -> Beat:
         return _retry_loop(self._heartbeat)
 
-def main(args):
+def main():
+    args = parse_args(sys.argv[1:])
     if args.debug:
         LOGGER.setLevel(logging.DEBUG)
 
@@ -239,4 +240,4 @@ def main(args):
         beat.post(response)
 
 if __name__ == '__main__':
-    main(parse_args(sys.argv[1:]))
+    main()
