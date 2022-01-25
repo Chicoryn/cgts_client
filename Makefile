@@ -1,7 +1,12 @@
-all:
+all: build
+
+upload: build
+	python3 -m twine upload dist/*
+
+build: cgts_client/__init__.py
 	python3 -m build
 
 clean:
-	rm -rf dist/ cgts_client_karl_blomdahl.egg-info/
+	rm -rf dist/ cgts_client.egg-info/
 
-.PHONY: all clean
+.PHONY: all build clean
